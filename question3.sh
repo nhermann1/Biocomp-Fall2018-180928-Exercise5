@@ -1,3 +1,3 @@
 #Answering Question 3
-#Effect of college graduation on income--answer in stdout
+#Effect of college graduation on income using difference--answer in stdout
 #Usage: 
