@@ -1,8 +1,13 @@
 #Answering Question 3
 #Effect of college graduation on income using difference--answer in stdout
 #Usage: 
-#Pseudo-code: define two variables, val1 and val2
-#val1 is equal to the average income of those with 16 years education, val2 those with 12 years education
-#find the average after grep-ing the two categories
-#echo the difference of the two variables defined above with bc 
+data=$(cat wages.csv | cut -d , -f 3,4 | grep ^1[62] | sort -nr -t , -k 1)
+val1=$(echo $data | grep ^16 | cut -d , -f 2 | sort -n | tail -n 1)
+val2=$(echo $data | grep ^12 | cut -d , -f 2 | sort -n | tail -n 1)
+echo "$val1"
+echo "$val2"
+
+
+
+  
 
