@@ -1,10 +1,10 @@
 #Answering Question 3
 #Effect of college graduation on income using difference--answer in stdout
-#Usage: 
-#Pseudo-code: define two variables, val1 and val2
-#val1 is equal to the lowest income of those with 16 years education, val2 those with 12 years education
-#find the tail after sorting the grep-ed 16 and 12 lists and set that equal to val1 or val2
-#echo the difference of the two variables defined above with bc 
+#*.csv must have yearsSchool in column 3 and wage in column 4
+#Usage: cat *.csv | bash question3.sh 
 
-#Usage: cat wages.csv | bash question3.sh
-sort -k 2n | tail -n 1
+data=$(cut -d , -f 3,4)
+val1=$(echo "$data" | grep ^16 | cut -d , -f 2 | sort -nr | tail -n 1)
+val2=$(echo "$data" | grep ^12 | cut -d , -f 2 | sort -nr | tail -n 1)
+echo "$val1-$val2" | bc
+ 
